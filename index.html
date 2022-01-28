@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="release/poker.min.js"></script>
+    <style>
+        canvas {
+            background-color: rgb(45, 95, 35);
+        }
+    </style>
+</head>
+<body>
+    <p>Здравейте, проекта .</p>
+    <canvas id="myowncanvas" width="1280" height="720"></canvas>
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * (max - 2 + 1) + 2);
+        }
+/* iskren stoy chuj me
+slushsh li
+tova e komentar
+iskren obicham te
+ */
+        async function main()
+        {
+            var suits = ['s', 'h', 'd', 'c'];
+            var card_size = 120;
+            var canvas = document.getElementById('myowncanvas').getContext('2d');
+            for(let i = 0; i < 7; i++)
+            {
+                await sleep(5);
+                const r = Math.floor(Math.random() * suits.length);
+                canvas.drawPokerCard(((1280 / 2) - card_size / 2) + (20*i), 550, card_size, suits[r], getRandomInt(9).toString());
+                // canvas.drawPokerCard(getRandomInt(1280), getRandomInt(720), card_size, suits[r], getRandomInt(9).toString());
+            }
+            
+            // await sleep(500)
+            // canvas.drawPokerCard(60, 20, 120, 'hearts', '5');
+            // await sleep(500)
+            // canvas.drawPokerCard(110, 30, 120, 'hearts', '6');
+
+            // for(let i = 0; i < 365; i++)
+            // {
+                
+            // }
+
+            // document.body.appendChild(Poker.getCardImage(60,'hearts','q'));
+            // document.body.appendChild(Poker.getCardImage(60,'hearts','q'));
+            // document.body.appendChild(Poker.getCardCanvas(60,'hearts','q'));
+            // document.body.appendChild(Poker.getCardCanvas(60,'hearts','q'));
+        }
+        
+        main();
+    </script>
+</body>
+</html>
